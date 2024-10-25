@@ -2,7 +2,7 @@ import os
 from flet import UserControl, Image
 
 class TsukuyomiUI(UserControl):
-    def __init__(self, initial_expression="normal"):
+    def __init__(self, initial_expression="normal", image_width=200, image_height=200):
         super().__init__()
 
         # モジュール内のimagesフォルダへのパスを取得
@@ -11,7 +11,11 @@ class TsukuyomiUI(UserControl):
         self.expression = initial_expression
         self.message_handler = None
 
-        # 新しい表情画像の辞書を定義
+        # 画像のサイズを設定
+        self.image_width = image_width
+        self.image_height = image_height
+
+        # 表情画像の辞書を定義
         self.expressions_dict = {
             "please": os.path.join(self.images_dir, "please.png"),
             "thank_you": os.path.join(self.images_dir, "thank_you.png"),
@@ -27,8 +31,8 @@ class TsukuyomiUI(UserControl):
         # 初期のキャラクター画像を設定
         self.character_image = Image(
             src=self.expressions_dict.get(self.expression, self.expressions_dict["please"]),
-            width=200,
-            height=200
+            width=self.image_width,
+            height=self.image_height
         )
 
         # クラスのコントロールにキャラクター画像を追加
@@ -42,6 +46,14 @@ class TsukuyomiUI(UserControl):
             self.update()  # 画像を更新
         else:
             print(f"Error: {new_expression} is not a valid expression.")
+
+    def set_image_size(self, width, height):
+        """画像サイズを変更するメソッド"""
+        self.image_width = width
+        self.image_height = height
+        self.character_image.width = width
+        self.character_image.height = height
+        self.update()
 
     def set_message_handler(self, handler):
         """メッセージ表示用のUIパーツを設定するメソッド"""
