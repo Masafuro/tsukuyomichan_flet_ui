@@ -22,8 +22,8 @@ The main goals of the Tsukuyomi-chan Flet UI project are:
    - このフェーズでは、プロジェクトの基本的な構造と、基本的な動作を実装します。
    - 目標は、つくよみちゃんの基本UIとFletの連携が動作すること。
 
-   - [x] Set up project repository on GitHub
-   - [x] Initialize the Python module structure
+   - [x] Set up project repository on GitHub : 2024/10/25 12:09
+   - [ ] Initialize the Python module structure
    - [ ] Create a basic UI with Tsukuyomi-chan's static image
    - [ ] Implement a simple text bubble for displaying messages
    - [ ] Add a basic example to demonstrate initial functionality
