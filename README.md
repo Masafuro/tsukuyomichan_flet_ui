@@ -2,7 +2,7 @@
 
 A friendly and intuitive UI framework using Tsukuyomi-chan with Flet, designed for seamless integration in business and commercial applications.
 
-月読ちゃんとFletを使った親しみやすく直感的なUIフレームワークです。
+つくよみちゃんとFletを使った親しみやすく直感的なUIフレームワークです。
 
 ## Development Goals
 
@@ -11,9 +11,9 @@ The main goals of the Tsukuyomi-chan Flet UI project are:
 - To provide a simple way to integrate the UI into business and commercial applications using the Flet framework.
 - To ensure the module is customizable, flexible, and MIT-licensed for wide adoption.
 
-月読ちゃんフレッツUIプロジェクトの主な目標は以下の通りです：
-- ツクヨミちゃんのキャラクターの表情やメッセージを使った、使いやすいUIフレームワークを作ること。
-- フレッツフレームワークを利用して、ビジネスや商用アプリケーションにUIを組み込む簡単な方法を提供すること。
+つくよみちゃんFletUIプロジェクトの主な目標は以下の通りです：
+- つくよみちゃんのキャラクターの表情やメッセージを使った、使いやすいUIフレームワークを作ること。
+- Fletフレームワークを利用して、ビジネスや商用アプリケーションにUIを組み込む簡単な方法を提供すること。
 - モジュールがカスタマイズ可能で、柔軟性があり、広く採用されるようにMITライセンスされていることを保証すること。
 
 ## Project Progress
