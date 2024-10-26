@@ -24,6 +24,9 @@ def main(page: Page):
     # 画像サイズを動的に変更（200x200）
     tsukuyomi.set_image_size(200, 200)
 
+
+
+
 if __name__ == "__main__":
     from flet import app
     app(target=main)

@@ -4,6 +4,9 @@ A friendly and intuitive UI framework using Tsukuyomi-chan with Flet, designed f
 
 つくよみちゃんとFletを使った親しみやすく直感的なUIフレームワークです。
 
+## 素材
+- 吹き出し画像_ https://fukidesign.com/page/16/
+
 ## Development Goals
 
 The main goals of the Tsukuyomi-chan Flet UI project are:

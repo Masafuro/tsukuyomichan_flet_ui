@@ -6,10 +6,9 @@ class TsukuyomiUI(UserControl):
         super().__init__()
 
         # モジュール内のimagesフォルダへのパスを取得
-        self.images_dir = os.path.join(os.path.dirname(__file__), "images")
+        self.images_dir = os.path.join(os.path.dirname(__file__), "images/tsukuyomichan")
 
         self.expression = initial_expression
-        self.message_handler = None
 
         # 画像のサイズを設定
         self.image_width = image_width
@@ -35,8 +34,13 @@ class TsukuyomiUI(UserControl):
             height=self.image_height
         )
 
-        # クラスのコントロールにキャラクター画像を追加
+        # Containerのサイズを設定
+        self.width = self.image_width
+        self.height = self.image_height
+
+        # コントロールにキャラクター画像を追加
         self.controls.append(self.character_image)
+
 
     def change_expression(self, new_expression):
         """キャラクターの表情を変更するメソッド"""
