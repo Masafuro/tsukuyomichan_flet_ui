@@ -44,14 +44,15 @@ class CustomContainer(ft.UserControl):
             height=300
         )
 
-        # UI部 (下側, 高さ300)
+        # UI部 (下側, 高さ300) - ColumnでUI要素を追加可能に
+        self.ui_area_content = ft.Column([], spacing=10)
         self.ui_area = ft.Container(
             bgcolor=ft.colors.YELLOW,
             width=500,
             height=300,
-            content=ft.Text("UI部", color=ft.colors.BLACK),
+            content=self.ui_area_content,
             alignment=ft.alignment.center,
-            padding=0
+            padding=10
         )
 
         # インターフェース部 (左側, 幅500)
@@ -89,4 +90,13 @@ class CustomContainer(ft.UserControl):
     def update_message_text(self, new_text):
         """メッセージテキストを更新するメソッド"""
         self.message_text.value = new_text
-        self.message_text.update()  # 画面に変更を反映
+        self.message_text.update()
+
+    def get_ui_area(self):
+        """UI部のColumnを返すメソッド"""
+        return self.ui_area_content
+
+    def clear_ui_area(self):
+        """UI部の要素をすべて削除するメソッド"""
+        self.ui_area_content.controls.clear()
+        self.ui_area_content.update()
