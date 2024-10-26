@@ -6,7 +6,7 @@ def main(page: ft.Page):
     page.window.width = 800  # ウィンドウの幅を800ピクセルに設定
     page.window.height = 600
     # TsukuyomiUIのインスタンスを作成（初期画像サイズを設定）
-    tsukuyomi = TsukuyomiUI(initial_expression="normal", image_width=10, image_height=10)
+    tsukuyomi = TsukuyomiUI(initial_expression="normal", image_width=200, image_height=200)
 
     page.title = "吹き出しのようなデザイン"
     page.bgcolor = ft.colors.WHITE
@@ -93,6 +93,8 @@ def main(page: ft.Page):
     )
 
     page.add(main_row)
+    tsukuyomi.set_image_size(200, 200)
+
 
 
     tsukuyomi.set_message_handler(text_display)
@@ -106,7 +108,7 @@ def main(page: ft.Page):
     tsukuyomi.change_expression("thank_you")
     tsukuyomi.say("ありがとうございます。")
     # 画像サイズを動的に変更（200x200）
-    # tsukuyomi.set_image_size(200, 200)
+    tsukuyomi.set_image_size(200, 200)
 
     
 

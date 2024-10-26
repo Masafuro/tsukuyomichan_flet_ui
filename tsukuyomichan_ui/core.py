@@ -1,20 +1,15 @@
 import os
-from flet import UserControl, Image
+from flet import UserControl, Image, Column
 
 class TsukuyomiUI(UserControl):
-    def __init__(self, initial_expression="normal", image_width=200, image_height=200):
+    def __init__(self, initial_expression="normal", image_width=50, image_height=50):
         super().__init__()
 
-        # モジュール内のimagesフォルダへのパスを取得
         self.images_dir = os.path.join(os.path.dirname(__file__), "images/tsukuyomichan")
-
         self.expression = initial_expression
-
-        # 画像のサイズを設定
         self.image_width = image_width
         self.image_height = image_height
 
-        # 表情画像の辞書を定義
         self.expressions_dict = {
             "please": os.path.join(self.images_dir, "please.png"),
             "thank_you": os.path.join(self.images_dir, "thank_you.png"),
@@ -27,48 +22,43 @@ class TsukuyomiUI(UserControl):
             "goodbye": os.path.join(self.images_dir, "goodbye.png")
         }
 
-        # 初期のキャラクター画像を設定
         self.character_image = Image(
             src=self.expressions_dict.get(self.expression, self.expressions_dict["please"]),
             width=self.image_width,
             height=self.image_height
         )
 
-        # Containerのサイズを設定
-        self.width = self.image_width
-        self.height = self.image_height
-
-        # コントロールにキャラクター画像を追加
-        self.controls.append(self.character_image)
-
+    def build(self):
+        return Column(
+            [self.character_image],
+            width=self.image_width,
+            height=self.image_height
+        )
 
     def change_expression(self, new_expression):
-        """キャラクターの表情を変更するメソッド"""
         if new_expression in self.expressions_dict:
             self.expression = new_expression
             self.character_image.src = self.expressions_dict[self.expression]
-            self.update()  # 画像を更新
+            self.character_image.update()
         else:
             print(f"Error: {new_expression} is not a valid expression.")
 
     def set_image_size(self, width, height):
-        """画像サイズを変更するメソッド"""
         self.image_width = width
         self.image_height = height
         self.character_image.width = width
         self.character_image.height = height
-        self.update()
+        self.character_image.update()
 
     def set_message_handler(self, handler):
-        """メッセージ表示用のUIパーツを設定するメソッド"""
-        self.message_handler = handler
+        if hasattr(handler, "value"):
+            self.message_handler = handler
+        else:
+            print("Error: Invalid message handler provided.")
 
     def say(self, message):
-        """メッセージを表示するメソッド"""
         if self.message_handler:
-            # カスタムメッセージパーツにメッセージを表示
             self.message_handler.value = message
             self.message_handler.update()
         else:
-            # メッセージパーツが設定されていない場合のエラーメッセージ
             print("Error: No message handler is set. Use set_message_handler() to set one.")
